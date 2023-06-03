@@ -15,7 +15,14 @@ export default defineConfig({
       workbox: {
         globPatterns: ["**/*.{js,css,html,ico,png,svg}"],
       },
-      includeAssets: ["favicon.ico", "apple-touch-icon.png", "masked-icon.svg"],
+      includeAssets: [
+        // ブラウザのfavicon
+        "favicon.ico",
+        // iosのホーム画面に追加した際のアイコン画像
+        "apple-touch-icon.png",
+        // Safariのページピン用のアイコン
+        "masked-icon.svg",
+      ],
       manifest: {
         theme_color: "#ffffff",
         background_color: "#f69435",
@@ -25,6 +32,7 @@ export default defineConfig({
         name: "PWA TEST",
         short_name: "PWA TEST",
         description: "PWA TEST",
+        // 解像度に応じたサイズの画像をいくつか用意することで、より適切な画像をブラウザ側が選択してくれる
         icons: [
           {
             src: "/icon-192x192.png",
